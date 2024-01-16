@@ -10,11 +10,14 @@ import {
   FeatureText,
   HeroImage,
   Footer,
-  PageContent
+  PageContent,
+  ComicImage,
+  FeatureBox
 } from './styled';
-import Add from '../../assets/add_circle.png';
+import Add from '../../assets/add_circle.svg';
 import Header from '../../components/Header';
 import Book2 from '../../assets/books2.png';
+import Comic from '../../assets/comics.png';
 
 const Home = ({ handleLogout }) => {
   return (
@@ -26,26 +29,29 @@ const Home = ({ handleLogout }) => {
             <HeroTitle>Explore a Universe of Stories</HeroTitle>
             <HeroSubtitle>Manage your readings easily and enjoyably</HeroSubtitle>
           </div>
-          <div>
-            <HeroImage src={Book2} alt="Books" />
-          </div>
+          <HeroImage src={Book2} alt="Books" />
         </HeroSection>
 
         <FeaturesSection>
-          <Feature>
-            <FeatureIcon src={Add} alt="add icon" />
-            <FeatureText>Create and edit your favorite stories</FeatureText>
-          </Feature>
+          <div>
+            <ComicImage src={Comic} alt="Comic" />
+          </div>
+          <FeatureBox>
+            <Feature>
+              <FeatureIcon src={Add} alt="add icon" />
+              <FeatureText>Create and edit your favorite stories</FeatureText>
+            </Feature>
 
-          <Feature>
-            <FeatureIcon src={Add} alt="add icon" />
-            <FeatureText>Organize your collection of books and manga</FeatureText>
-          </Feature>
+            <Feature>
+              <FeatureIcon src={Add} alt="add icon" />
+              <FeatureText>Organize your collection of books and manga</FeatureText>
+            </Feature>
 
-          <Feature>
-            <FeatureIcon src={Add} alt="add icon" />
-            <FeatureText>Share your recommendations with fellow readers</FeatureText>
-          </Feature>
+            <Feature>
+              <FeatureIcon src={Add} alt="add icon" />
+              <FeatureText>Share your recommendations with fellow readers</FeatureText>
+            </Feature>
+          </FeatureBox>
         </FeaturesSection>
 
         <Footer>© 2024 StorySphere. All rights reserved.</Footer>

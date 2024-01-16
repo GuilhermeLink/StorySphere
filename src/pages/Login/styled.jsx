@@ -12,6 +12,13 @@ export const LoginWrapper = styled.div`
   background-size: cover;
 `;
 
+export const LoginImage = styled.img`
+  width: 410px; 
+  height: auto;
+  margin-right: 20px; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+`;
+
 export const LoginFormContainer = styled.div`
   background-color: #1f1f1f;
   padding: 40px;
@@ -41,7 +48,7 @@ export const LoginForm = styled.form`
     background-color: #333333;
     color: #ffffff;
     transition: border-color 0.3s ease; 
-    border: 1px solid transparent; 
+    border: 2px solid transparent; 
   }
 
   input:focus {
@@ -52,10 +59,13 @@ export const LoginForm = styled.form`
 export const StyledLogin = styled(Link)`
   padding: 15px;
   border-radius: 6px;
+  border: 0;
   background-color: #00ff00;
   color: #000000;
   cursor: pointer;
   font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
   text-decoration: none;
   transition: background-color 0.3s ease;
 
@@ -67,10 +77,11 @@ export const StyledLogin = styled(Link)`
 export const StyledRegister = styled(Link)`
   padding: 15px;
   border-radius: 6px;
-  background-color: #ff0000;
+  background-color: #3498db;
   color: #ffffff;
   cursor: pointer;
   font-family: 'Arial', sans-serif;
+  font-size: 14px;
   text-decoration: none;
   transition: background-color 0.3s ease;
 

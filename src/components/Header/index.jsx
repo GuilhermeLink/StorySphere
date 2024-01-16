@@ -9,7 +9,7 @@ import {
   Logo1,
   Title
 } from './styled';
-import Logo from '../../assets/favicon.png';
+import Logo from '../../assets/logo1.png';
 
 const Header = () => {
   return (

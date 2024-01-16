@@ -12,6 +12,14 @@ export const RegisterWrapper = styled.div`
   background-size: cover;
 `;
 
+export const RegisterImage = styled.img`
+  width: 550px; 
+  height: auto;
+  margin-right: 20px; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: #d7dee5;
+`;
+
 export const RegisterFormContainer = styled.div`
   background-color: #1f1f1f;
   border-radius: 8px;
@@ -32,30 +40,38 @@ export const RegisterForm = styled.form`
   flex-direction: column;
   gap: 20px;
 
-  input,
   button {
     padding: 15px;
-    border: 1px solid transparent; /* Remove a borda inicial */
+    border: 1px solid transparent;
     border-radius: 6px;
     font-family: 'Arial', sans-serif;
     text-decoration: none;
-    transition: background-color 0.3s ease, border-color 0.3s ease; /* Adiciona a transição para a borda */
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
     width: 100%;
     box-sizing: border-box;
   }
 
   input {
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    font-family: 'Arial', sans-serif;
     background-color: #333333;
     color: #ffffff;
+    transition: border-color 0.3s ease; 
+    border: 2px solid transparent; 
 
     &:focus {
-      border-color: white; /* Adiciona a borda branca ao focar no input */
+      border-color: white;
     }
   }
 
   button {
     background-color: #00ff00;
     color: #000000;
+    font-weight: bold;
+    font-size: 14px;
     cursor: pointer;
 
     &:hover {
@@ -72,6 +88,7 @@ export const ReturnLink = styled(Link)`
   background-color: #1f1f1f;
   color: #ffffff;
   font-family: 'Arial', sans-serif;
+  font-size: 14px;
   text-decoration: none;
   transition: background-color 0.3s ease;
   width: 100%;

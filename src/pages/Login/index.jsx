@@ -7,9 +7,11 @@ import {
   LoginForm,
   StyledRegister,
   StyledLogin,
+  LoginImage
 } from './styled';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LogoLogin from '../../assets/logo.png';
 
 const LoginPage = ({ handleLogin }) => {
   const [username, setUsername] = useState('');
@@ -20,8 +22,7 @@ const LoginPage = ({ handleLogin }) => {
     e.preventDefault();
 
     if (!username || !password) {
-      toast.error('Preencha todos os campos', {
-        autoClose: 1000, 
+      toast.error('Please complete all fields', {
         style: {
           background: '#333', 
           color: '#fff',
@@ -35,24 +36,30 @@ const LoginPage = ({ handleLogin }) => {
 
       if (username === 'usuarioteste' && password === 'senhaincorreta') {
         handleLogin();
-        navigate('/home');
+        navigate('/profile');
       } else {
-        toast.error('Usuário ou senha incorretos');
+        toast.error('User or password incorrect', {
+          style: {
+            background: '#333', 
+            color: '#fff',
+          },
+        });
       }
     } catch (error) {
-      console.error('Erro de autenticação:', error);
+      console.error('Autentication error:', error);
     }
   };
 
   return (
     <LoginWrapper>
       <ToastContainer />
+      <LoginImage src={LogoLogin} alt="Login" />
       <LoginFormContainer>
         <LoginTitle>Login</LoginTitle>
         <LoginForm onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="User"
+            placeholder="Email"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />

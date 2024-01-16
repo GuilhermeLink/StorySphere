@@ -12,8 +12,7 @@ export const HomeWrapper = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #000;
-  padding: 0 20px; 
+  background-color: #000; 
   margin: 0 auto; 
 `;
 
@@ -21,17 +20,17 @@ export const HeroSection = styled.section`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  padding: 0 20px;
-  background-color: #000;
-  color: #fff;
+  width: 100%; 
+  background-color: #f1c40f;
+  color: #000000;
   text-align: center;
 `;
 
 export const HeroImage = styled.img`
   width: 100%; 
-  max-width: 400px; 
-  height: auto; 
+  max-width: 500px;  
+  height: auto;
+  object-fit: contain;
 `;
 
 export const HeroTitle = styled.h1`
@@ -47,27 +46,40 @@ export const HeroSubtitle = styled.p`
 `;
 
 export const FeaturesSection = styled.section`
-  width: 100%;
-  padding: 80px 20px; 
+  width: 100%; 
   background-color: #111;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
 `;
 
 export const Feature = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 40px;
-  width: 80%; 
+  width: 100%; 
   margin: 0 auto; 
 `;
 
+export const FeatureBox = styled.div`
+  padding: 80px 20px;
+`;
+
+export const ComicImage = styled.img`
+  width: 100%; 
+  max-width: 500px; 
+  border-radius: 5%;
+  height: auto; 
+`;
+
 export const FeatureIcon = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin-right: 20px;
+  background-color: #fff;
+  border-radius: 50%;
 `;
 
 export const FeatureText = styled.p`
@@ -77,8 +89,8 @@ export const FeatureText = styled.p`
 
 export const Footer = styled.footer`
   width: 100%;
-  padding: 40px 0;
-  background-color: #000;
+  padding: 20px 0;
+  background-color: #6f6f6f;
   color: #fff;
   text-align: center;
   font-size: 1.2rem;
