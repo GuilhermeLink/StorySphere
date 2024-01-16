@@ -60,7 +60,7 @@ export const StyledLogin = styled(Link)`
   padding: 15px;
   border-radius: 6px;
   border: 0;
-  background-color: #00ff00;
+  background-color: #27ae60;
   color: #000000;
   cursor: pointer;
   font-family: 'Arial', sans-serif;
@@ -86,6 +86,6 @@ export const StyledRegister = styled(Link)`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #cc0000;
+    background-color: #165e8e;
   }
 `;

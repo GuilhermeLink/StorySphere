@@ -68,7 +68,7 @@ export const RegisterForm = styled.form`
   }
 
   button {
-    background-color: #00ff00;
+    background-color: #27ae60;
     color: #000000;
     font-weight: bold;
     font-size: 14px;
@@ -83,9 +83,8 @@ export const RegisterForm = styled.form`
 export const ReturnLink = styled(Link)`
   display: block;
   padding: 15px;
-  border: 1px solid #ffffff;
   border-radius: 6px;
-  background-color: #1f1f1f;
+  background-color: #3498db;
   color: #ffffff;
   font-family: 'Arial', sans-serif;
   font-size: 14px;
@@ -95,7 +94,6 @@ export const ReturnLink = styled(Link)`
   box-sizing: border-box;
 
   &:hover {
-    background-color: #00ff00;
-    border: 1px solid transparent;
+    background-color: #165e8e;
   }
 `;
