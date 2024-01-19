@@ -59,7 +59,10 @@ export const SidebarNav = styled.nav`
 
 export const MainContent = styled.div`
   flex: 1;
+  height: 100%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const SearchBar = styled.div`
@@ -82,5 +85,45 @@ export const SearchBar = styled.div`
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+`;
+
+export const SearchResults = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  justify-content: center;
+  flex: 1;
+
+  div {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+    width: 200px; /* Tamanho fixo para os boxes */
+    height: 300px; /* Altura fixa para os boxes */
+
+    img {
+      width: 100%;
+      height: 80%; /* Altura da imagem em relação ao box */
+      object-fit: cover; /* Mantém a proporção da imagem e corta se necessário */
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-top: 10px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; /* Adiciona reticências (...) se o texto ultrapassar a largura */
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
@@ -15,6 +15,20 @@ const App = () => {
   const handleLogout = () => {
     setAuthenticated(false);
   };
+
+  useEffect(() => {
+    // Adicione o script da API do Google Books ao carregar o componente
+    const script = document.createElement('script');
+    script.src = 'https://books.google.com/books/jsapi.js';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    // Certifique-se de remover o script ao desmontar o componente para evitar vazamentos de memória
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <Router>
