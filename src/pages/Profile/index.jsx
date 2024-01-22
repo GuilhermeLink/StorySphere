@@ -7,14 +7,20 @@ import {
   SidebarHeader,
   SidebarNav,
   SearchResults,
+  UserImg,
+  RecentlyRead
 } from './styled';
 import { useNavigate } from 'react-router-dom';
+import UserProfile from '../../assets/user.png';
+import { getLoggedInUser } from '../../components/Profile/ProfileUserInfo';
+import PlaceholderImage from '../../assets/nothing.png';
 
 const Profile = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [hasSearchResults, setHasSearchResults] = useState(false);
+  const loggedInUser = getLoggedInUser();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -47,8 +53,8 @@ const Profile = () => {
     <PageContent>
       <Sidebar>
         <SidebarHeader>
-          <img src="perfil.jpg" alt="Profile" />
-          <span>User Name</span>
+          <UserImg src={UserProfile} alt="User" />
+          <span>{loggedInUser ? loggedInUser.name : 'User Name'}</span>
         </SidebarHeader>
         <SidebarNav>
           <button>Dashboard</button>
@@ -71,15 +77,37 @@ const Profile = () => {
           </button>
         </SearchBar>
 
-        <SearchResults>
-          {searchResults.map((book) => (
-            <div key={book.id} onClick={() => handleResultClick(book)}>
-              <img src={book.volumeInfo.imageLinks?.thumbnail || ''} alt={book.volumeInfo.title} />
-              <p>{book.volumeInfo.title}</p>
-            </div>
-          ))}
-        </SearchResults>
+        {hasSearchResults && (
+          <SearchResults>
+            {searchResults.map((book) => (
+              <div key={book.id} onClick={() => handleResultClick(book)}>
+                <img src={book.volumeInfo.imageLinks?.thumbnail || ''} alt={book.volumeInfo.title} />
+                <p>{book.volumeInfo.title}</p>
+              </div>
+            ))}
+          </SearchResults>
+        )}
 
+        {!hasSearchResults && (
+          <RecentlyRead>
+            <h2>Recently Read:</h2>
+            <div>
+              {loggedInUser?.recentlyReadBooks && loggedInUser.recentlyReadBooks.length > 0 ? (
+                loggedInUser.recentlyReadBooks.map((book) => (
+                  <div key={book.id} onClick={() => handleResultClick(book)}>
+                    <img src={book.thumbnail || ''} alt={book.title} />
+                    <p>{book.title}</p>
+                  </div>
+                ))
+              ) : (
+                <div>
+                  <img src={PlaceholderImage} alt="Nothing here yet" />
+                  <p>Nada por aqui ainda</p>
+                </div>
+              )}
+            </div>
+          </RecentlyRead>
+        )}
       </MainContent>
     </PageContent>
   );

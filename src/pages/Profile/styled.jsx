@@ -57,6 +57,12 @@ export const SidebarNav = styled.nav`
   }
 `;
 
+export const UserImg = styled.img`
+  background-color: #fff;
+  max-width: 20px;
+  max-height: 20px;
+`
+
 export const MainContent = styled.div`
   flex: 1;
   height: 100%;
@@ -69,12 +75,14 @@ export const SearchBar = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  
 
   input {
     width: 70%;
     padding: 10px;
     border: none;
     border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   }
 
   button {
@@ -92,7 +100,6 @@ export const SearchResults = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  max-height: 70vh;
   overflow-y: auto;
   justify-content: center;
   flex: 1;
@@ -103,13 +110,59 @@ export const SearchResults = styled.div`
     border-radius: 5px;
     padding: 10px;
     transition: transform 0.3s ease-in-out;
-    width: 200px; /* Tamanho fixo para os boxes */
-    height: 300px; /* Altura fixa para os boxes */
+    width: 200px; 
+    height: 300px; 
 
     img {
       width: 100%;
-      height: 80%; /* Altura da imagem em relação ao box */
-      object-fit: cover; /* Mantém a proporção da imagem e corta se necessário */
+      height: 80%; 
+      object-fit: cover; 
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+`;
+
+export const RecentlyRead = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; 
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  div > div {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+
+    img {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
       border-radius: 5px;
       margin-bottom: 10px;
     }
@@ -119,11 +172,27 @@ export const SearchResults = styled.div`
       text-align: center;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; /* Adiciona reticências (...) se o texto ultrapassar a largura */
+      text-overflow: ellipsis;
     }
 
     &:hover {
       transform: scale(1.05);
+    }
+  }
+
+  div > div.no-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%; 
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
     }
   }
 `;
